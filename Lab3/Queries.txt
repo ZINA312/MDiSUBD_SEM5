@@ -1,0 +1,238 @@
+********************
+Создание таблиц
+********************
+--создание таблицы ролей
+CREATE TABLE roles (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR NOT NULL
+);
+--создание таблицы категорий
+CREATE TABLE categories (
+	id SERIAL PRIMARY KEY NOT NULL,
+	name VARCHAR NOT NULL
+);
+--создание таблицы способов оплаты
+CREATE TABLE payment_methods(
+	id SERIAL PRIMARY KEY NOT NULL,
+	name VARCHAR NOT NULL
+);
+--создание таблицы способов доставки
+CREATE TABLE delivery_methods(
+	id SERIAL PRIMARY KEY NOT NULL,
+	name VARCHAR NOT NULL
+);
+--создание таблицы пользователей
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR NOT NULL,
+    email VARCHAR UNIQUE NOT NULL,
+    password VARCHAR NOT NULL,
+	role_id INT NOT NULL,
+    FOREIGN KEY (role_id)  REFERENCES roles(id) 
+);
+--создание таблицы журнала
+CREATE TABLE journal (
+    id SERIAL PRIMARY KEY NOT NULL,
+	user_id INT NOT NULL,
+    FOREIGN KEY (user_id)  REFERENCES users(id), 
+    action VARCHAR NOT NULL,
+    date TIMESTAMP NOT NULL
+);
+--создание таблицы корзин
+CREATE TABLE carts (
+    id SERIAL PRIMARY KEY NOT NULL,
+	user_id INT NOT NULL,
+    FOREIGN KEY (user_id)  REFERENCES users(id), 
+    date TIMESTAMP NOT NULL,
+    total_price DECIMAL NOT NULL
+);
+--создание таблицы продуктов
+CREATE TABLE products (
+	id SERIAL PRIMARY KEY NOT NULL,
+	name VARCHAR NOT NULL,
+	description VARCHAR NOT NULL,
+	price DECIMAL NOT NULL,
+	category INT NOT NULL,
+	FOREIGN KEY (category)  REFERENCES categories(id)
+);
+--создание таблицы заказов
+CREATE TABLE orders (
+	id SERIAL PRIMARY KEY NOT NULL,
+	user_id INT NOT NULL,
+	date TIMESTAMP NOT NULL,
+	status VARCHAR NOT NULL,
+	total_price DECIMAL NOT NULL,
+	payment_method INT NOT NULL,
+	delivery_method INT NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES users(id), 
+	FOREIGN KEY (payment_method) REFERENCES payment_methods(id),
+	FOREIGN KEY (delivery_method) REFERENCES delivery_methods(id)
+);
+--создание таблицы корзина-товар
+CREATE TABLE cart_product(
+	cart_id INT NOT NULL,
+	product_id INT NOT NULL,
+	FOREIGN KEY (cart_id) REFERENCES carts(id),
+	FOREIGN KEY (product_id) REFERENCES products(id),
+	PRIMARY KEY (cart_id, product_id),
+	quantity INT NOT NULL,
+	total_price DECIMAL NOT NULL
+);
+--создание таблицы товар-заказ
+CREATE TABLE product_order(
+	product_id INT NOT NULL,
+	order_id INT NOT NULL,
+	FOREIGN KEY (product_id) REFERENCES products(id),
+	FOREIGN KEY (order_id) REFERENCES orders(id),
+	PRIMARY KEY (product_id, order_id),
+	total_price DECIMAL NOT NULL
+);
+
+
+********************
+Заполнение таблиц
+********************
+-- Заполнение таблицы ролей
+INSERT INTO roles (name) VALUES
+('admin'),
+('customer');
+
+-- Заполнение таблицы категорий
+INSERT INTO categories (name) VALUES
+('Телескопы'),
+('Планетарии'),
+('Астрономическая аппаратура'),
+('Книги по астрономии'),
+('Астрономические аксессуары'),
+('Микроскопы');
+
+-- Заполнение таблицы способов оплаты
+INSERT INTO payment_methods (name) VALUES
+('Кредитная карта'),
+('PayPal'),
+('Банковский перевод'),
+('Наличные');
+
+-- Заполнение таблицы способов доставки
+INSERT INTO delivery_methods (name) VALUES
+('Стандартная доставка'),
+('Экспресс-доставка'),
+('Самовывоз'),
+('Международная доставка');
+
+-- Заполнение таблицы пользователей
+INSERT INTO users (name, email, password, role_id) VALUES
+('Иван Иванов', 'ivan@example.com', 'password123', 2),
+('Анна Петрова', 'anna@example.com', 'password123', 2),
+('Сергей Смирнов', 'sergey@example.com', 'password123', 2),
+('Мария Васильева', 'maria@example.com', 'password123', 2),
+('Администратор', 'admin@example.com', 'adminpass', 1);
+
+-- Заполнение таблицы журнала
+INSERT INTO journal (user_id, action, date) VALUES
+(3, 'Создал пользователя', NOW()),
+(2, 'Добавил товар в корзину', NOW()),
+(1, 'Сделал заказ', NOW()),
+(2, 'Просмотрел товары', NOW()),
+(1, 'Изменил пароль', NOW()),
+(3, 'Добавил новый товар', NOW());
+
+-- Заполнение таблицы корзин
+INSERT INTO carts (user_id, date, total_price) VALUES
+(1, NOW(), 0.00),
+(2, NOW(), 0.00),
+(3, NOW(), 0.00),
+(4, NOW(), 0.00),
+(5, NOW(), 0.00);
+
+-- Заполнение таблицы товаров
+INSERT INTO products (name, description, price, category) VALUES
+('Телескоп для начинающих', 'Телескоп с увеличением до 100x', 15000.00, 1),
+('Планетарий', 'Проектор звездного неба', 5000.00, 2),
+('Книга по астрономии', 'Все о звездах и планетах', 1500.00, 4),
+('Набор фильтров для телескопа', 'Фильтры для улучшения видимости', 3000.00, 5),
+('Микроскоп для детей', 'Легкий микроскоп с увеличением 400x', 7000.00, 6),
+('Телескоп с автонастройкой', 'Телескоп с автоматическим наведением', 25000.00, 1),
+('Научный набор для астрономов', 'Набор для изучения астрономии', 4500.00, 3);
+
+-- Заполнение таблицы заказов
+INSERT INTO orders (user_id, date, status, total_price, payment_method, delivery_method) VALUES
+(1, NOW(), 'Выполнен', 15000.00, 1, 2),
+(2, NOW(), 'Обрабатывается', 5000.00, 2, 1),
+(2, NOW(), 'Выполнен', 2500.00, 1, 2),
+(3, NOW(), 'Отменен', 7000.00, 2, 1);
+
+-- Заполнение таблицы cart_product
+INSERT INTO cart_product (cart_id, product_id, quantity, total_price) VALUES
+(1, 1, 1, 15000.00),
+(2, 2, 1, 5000.00),
+(1, 3, 2, 3000.00),
+(1, 4, 1, 25000.00),
+(2, 5, 1, 4500.00),
+(3, 6, 1, 7000.00),
+(1, 7, 1, 2500.00);
+
+-- Заполнение таблицы product_order
+INSERT INTO product_order (product_id, order_id, total_price) VALUES
+(1, 1, 15000.00),
+(2, 2, 5000.00),
+(3, 1, 3000.00),
+(4, 2, 25000.00),
+(6, 3, 7000.00),
+(5, 1, 4500.00);
+
+*************************
+Создание данных (INSERT)
+*************************
+Добавление роли
+INSERT INTO roles (name) VALUES ('менеджер');
+----
+Добавление категории
+INSERT INTO categories (name) VALUES ('Космические модели');
+----
+Добавление пользователя
+INSERT INTO users (name, email, password, role_id) VALUES ('Елена Смирнова', 'elena@example.com', 'password123', 2);
+----
+Добавление товара
+INSERT INTO products (name, description, price, category) VALUES ('Модель спутника', 'Модель спутника в масштабе 1:100', 4000.00, 7);
+----
+Добавление заказа
+INSERT INTO orders (user_id, date, status, total_price, payment_method, delivery_method) VALUES (1, NOW(), 'Обрабатывается', 4000.00, 1, 2);
+
+*************************
+Чтение данных (SELECT)
+*************************
+Получение всех пользователей
+SELECT * FROM users;
+----
+Получение всех товаров в категории
+SELECT * FROM products WHERE category = 1; 
+----
+Получение всех заказов пользователя
+SELECT * FROM orders WHERE user_id = 1;
+----
+Поиск товаров по имени
+SELECT * FROM products WHERE name ILIKE '%телескоп%'; 
+-----
+Получение количества товаров в корзине пользователя
+SELECT SUM(quantity) FROM cart_product WHERE cart_id = (SELECT id FROM carts WHERE user_id = 1);
+
+*************************
+Обновление данных (UPDATE)
+*************************
+Обновление информации о пользователе
+UPDATE users SET name = 'Елена Петрова', email = 'elena_p@example.com' WHERE id = 1; 
+Обновление статуса заказа
+UPDATE orders SET status = 'Выполнен' WHERE id = 1;
+
+*************************
+Удаление данных (DELETE)
+*************************
+Удаление пользователя
+DELETE FROM users WHERE id = 2; 
+----
+Удаление товара
+DELETE FROM products WHERE id = 3;
+----
+Удаление заказа
+DELETE FROM orders WHERE id = 1; 
