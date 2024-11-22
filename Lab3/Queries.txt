@@ -96,8 +96,6 @@ CREATE TABLE review(
 	rating INT NOT NULL
 	FOREIGN KEY (product_id) REFERENCES products(id),
 	FOREIGN KEY (user_id) REFERENCES users(id),
-	PRIMARY KEY (product_id, order_id),
-	total_price DECIMAL NOT NULL
 );
 
 ********************
