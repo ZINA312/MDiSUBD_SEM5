@@ -1,0 +1,290 @@
+********************
+Триггеры
+********************
+--триггер для автоматического расчета общей стоимости заказа
+CREATE OR REPLACE FUNCTION update_order_total()
+RETURNS TRIGGER AS $$
+DECLARE
+    total DECIMAL := 0;
+BEGIN
+    SELECT SUM(total_price) INTO total
+    FROM product_order
+    WHERE order_id = NEW.order_id;
+
+    UPDATE orders
+    SET total_price = total
+    WHERE id = NEW.order_id;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_update_order_total
+AFTER INSERT OR DELETE ON product_order
+FOR EACH ROW
+EXECUTE FUNCTION update_order_total();
+
+
+--триггер для пересчета стоимости корзины при изменении стоимости товара
+CREATE OR REPLACE FUNCTION recalculate_cart_total()
+RETURNS TRIGGER AS $$
+DECLARE
+    total DECIMAL := 0;
+BEGIN
+    SELECT SUM(cp.total_price) INTO total
+    FROM cart_product cp
+    JOIN carts c ON cp.cart_id = c.id
+    WHERE cp.product_id = OLD.id;
+
+    UPDATE carts
+    SET total_price = total
+    WHERE id = (SELECT cart_id FROM cart_product WHERE product_id = OLD.id LIMIT 1);
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_recalculate_cart_total
+AFTER UPDATE OF price ON products
+FOR EACH ROW
+EXECUTE FUNCTION recalculate_cart_total();
+
+
+--триггер для логирования изменений пользователей
+CREATE OR REPLACE FUNCTION log_user_changes()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NEW.id, 'Добавлен пользователь', NOW());
+    ELSIF TG_OP = 'UPDATE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NEW.id, 'Обновлен пользователь', NOW());
+    ELSIF TG_OP = 'DELETE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (OLD.id, 'Удален пользователь', NOW());
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_log_user_changes
+AFTER INSERT OR UPDATE OR DELETE ON users
+FOR EACH ROW
+EXECUTE FUNCTION log_user_changes();
+
+
+--триггер для логирования изменений товаров
+CREATE OR REPLACE FUNCTION log_product_changes()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NULL, 'Добавлен продукт', NOW()); -- user_id может быть NULL
+    ELSIF TG_OP = 'UPDATE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NULL, 'Обновлен продукт', NOW());
+    ELSIF TG_OP = 'DELETE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NULL, 'Удален продукт', NOW());
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_log_product_changes
+AFTER INSERT OR UPDATE OR DELETE ON products
+FOR EACH ROW
+EXECUTE FUNCTION log_product_changes();
+
+
+--триггер для логирования изменений заказов
+CREATE OR REPLACE FUNCTION log_order_changes()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NEW.user_id, 'Создан заказ', NOW());
+    ELSIF TG_OP = 'UPDATE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NEW.user_id, 'Обновлен заказ', NOW());
+    ELSIF TG_OP = 'DELETE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (OLD.user_id, 'Удален заказ', NOW());
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_log_order_changes
+AFTER INSERT OR UPDATE OR DELETE ON orders
+FOR EACH ROW
+EXECUTE FUNCTION log_order_changes();
+
+--триггер для логирования изменений отзывов
+CREATE OR REPLACE FUNCTION log_review_changes()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NEW.user_id, 'Добавлен отзыв', NOW());
+    ELSIF TG_OP = 'UPDATE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (NEW.user_id, 'Обновлен отзыв', NOW());
+    ELSIF TG_OP = 'DELETE' THEN
+        INSERT INTO journal(user_id, action, date)
+        VALUES (OLD.user_id, 'Удален отзыв', NOW());
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_log_review_changes
+AFTER INSERT OR UPDATE OR DELETE ON review
+FOR EACH ROW
+EXECUTE FUNCTION log_review_changes();
+
+********************
+Процедуры
+********************
+--процедура для добавления нового пользователя
+CREATE OR REPLACE PROCEDURE add_user(
+    p_name VARCHAR,
+    p_email VARCHAR,
+    p_password VARCHAR,
+    p_role_id INT
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    INSERT INTO users (name, email, password, role_id)
+    VALUES (p_name, p_email, p_password, p_role_id);
+END;
+$$;
+
+
+--процедура для обновления информации о пользователе
+CREATE OR REPLACE PROCEDURE update_user(
+    p_id INT,
+    p_name VARCHAR,
+    p_email VARCHAR,
+    p_password VARCHAR
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    UPDATE users
+    SET name = p_name, email = p_email, password = p_password
+    WHERE id = p_id;
+END;
+$$;
+
+
+--процедура для удаления пользователя
+CREATE OR REPLACE PROCEDURE delete_user(p_id INT)
+LANGUAGE plpgsql AS $$
+BEGIN
+    DELETE FROM users WHERE id = p_id;
+END;
+$$;
+
+
+--процедура для добавления нового товара
+CREATE OR REPLACE PROCEDURE add_product(
+    p_name VARCHAR,
+    p_description VARCHAR,
+    p_price DECIMAL,
+    p_category INT
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    INSERT INTO products (name, description, price, category)
+    VALUES (p_name, p_description, p_price, p_category);
+END;
+$$;
+
+
+--процедура для обновления информации о товаре
+CREATE OR REPLACE PROCEDURE update_product(
+    p_id INT,
+    p_name VARCHAR,
+    p_description VARCHAR,
+    p_price DECIMAL,
+    p_category INT
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    UPDATE products
+    SET name = p_name, description = p_description, price = p_price, category = p_category
+    WHERE id = p_id;
+END;
+$$;
+
+
+--процедура для удаления товара
+CREATE OR REPLACE PROCEDURE delete_product(p_id INT)
+LANGUAGE plpgsql AS $$
+BEGIN
+    DELETE FROM products WHERE id = p_id;
+END;
+$$;
+
+
+--процедура для создания нового заказа
+CREATE OR REPLACE PROCEDURE create_order(
+    p_user_id INT,
+    p_status VARCHAR,
+    p_payment_method INT,
+    p_delivery_method INT
+)
+LANGUAGE plpgsql AS $$
+DECLARE
+    v_order_id INT;
+BEGIN
+    INSERT INTO orders (user_id, date, status, total_price, payment_method, delivery_method)
+    VALUES (p_user_id, NOW(), p_status, 0, p_payment_method, p_delivery_method)
+    RETURNING id INTO v_order_id;
+
+    RAISE NOTICE 'Order ID: %', v_order_id;
+END;
+$$;
+
+--процедура для добавления товара в корзину
+CREATE OR REPLACE PROCEDURE add_to_cart(
+    p_cart_id INT,
+    p_product_id INT,
+    p_quantity INT
+)
+LANGUAGE plpgsql AS $$
+DECLARE
+    v_product_price DECIMAL;
+    v_total_price DECIMAL;
+BEGIN
+    -- Получаем цену товара
+    SELECT price INTO v_product_price
+    FROM products
+    WHERE id = p_product_id;
+
+    -- Вычисляем общую стоимость для добавляемого товара
+    v_total_price := v_product_price * p_quantity;
+
+    -- Добавляем товар в корзину
+    INSERT INTO cart_product (cart_id, product_id, quantity, total_price)
+    VALUES (p_cart_id, p_product_id, p_quantity, v_total_price);
+
+    -- Обновляем общую стоимость корзины
+    UPDATE carts
+    SET total_price = total_price + v_total_price
+    WHERE id = p_cart_id;
+END;
+$$;
+
+
+--процедура для получения всех заказов пользователя
+CREATE OR REPLACE FUNCTION get_user_orders(p_user_id INT)
+RETURNS TABLE (id INT, date TIMESTAMP, status VARCHAR, total_price DECIMAL) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT id, date, status, total_price
+    FROM orders
+    WHERE user_id = p_user_id;
+END;
+$$ LANGUAGE plpgsql;
