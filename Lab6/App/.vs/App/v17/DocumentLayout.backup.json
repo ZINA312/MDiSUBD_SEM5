@@ -1,0 +1,283 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\services\\dataservice\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\services\\dataservice\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\services\\databaseservice\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\services\\databaseservice\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\services\\dataservice\\idataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\services\\dataservice\\idataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\journal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\journal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\deliverymethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\deliverymethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|d:\\codes\\course 3\\sem 1\\mdisubd\\lab6\\app\\app\\services\\databaseservice\\idatabaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87282A78-3D1A-4572-B9B1-7E549B259B04}|App\\App.csproj|solutionrelative:app\\services\\databaseservice\\idatabaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 283,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Program.cs",
+              "RelativeDocumentMoniker": "App\\Program.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Program.cs",
+              "RelativeToolTip": "App\\Program.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAowE0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:14:29.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\Category.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Category.cs",
+              "RelativeToolTip": "App\\Entities\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:36:15.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Journal.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Journal.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\Journal.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Journal.cs",
+              "RelativeToolTip": "App\\Entities\\Journal.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:37:42.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PaymentMethod.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\PaymentMethod.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\PaymentMethod.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\PaymentMethod.cs",
+              "RelativeToolTip": "App\\Entities\\PaymentMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:37:21.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\Product.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Product.cs",
+              "RelativeToolTip": "App\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:36:34.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Review.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Review.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\Review.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Review.cs",
+              "RelativeToolTip": "App\\Entities\\Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:36:41.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IDataService.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataService\\IDataService.cs",
+              "RelativeDocumentMoniker": "App\\Services\\DataService\\IDataService.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataService\\IDataService.cs",
+              "RelativeToolTip": "App\\Services\\DataService\\IDataService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAswB8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:34:08.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataService.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataService\\DataService.cs",
+              "RelativeDocumentMoniker": "App\\Services\\DataService\\DataService.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataService\\DataService.cs",
+              "RelativeToolTip": "App\\Services\\DataService\\DataService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:33:48.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataBaseService.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataBaseService\\DataBaseService.cs",
+              "RelativeDocumentMoniker": "App\\Services\\DataBaseService\\DataBaseService.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataBaseService\\DataBaseService.cs",
+              "RelativeToolTip": "App\\Services\\DataBaseService\\DataBaseService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwGcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:17:11.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\User.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\User.cs",
+              "RelativeToolTip": "App\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:37:37.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Cart.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\Cart.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Cart.cs",
+              "RelativeToolTip": "App\\Entities\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:38:14.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DeliveryMethod.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\DeliveryMethod.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\DeliveryMethod.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\DeliveryMethod.cs",
+              "RelativeToolTip": "App\\Entities\\DeliveryMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:37:27.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\CartItem.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\CartItem.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\CartItem.cs",
+              "RelativeToolTip": "App\\Entities\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T12:19:31.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Role.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\Role.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Role.cs",
+              "RelativeToolTip": "App\\Entities\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:37:45.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "App\\Entities\\Order.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Entities\\Order.cs",
+              "RelativeToolTip": "App\\Entities\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:36:45.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IDataBaseService.cs",
+              "DocumentMoniker": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataBaseService\\IDataBaseService.cs",
+              "RelativeDocumentMoniker": "App\\Services\\DataBaseService\\IDataBaseService.cs",
+              "ToolTip": "D:\\codes\\Course 3\\Sem 1\\MDiSUBD\\Lab6\\App\\App\\Services\\DataBaseService\\IDataBaseService.cs",
+              "RelativeToolTip": "App\\Services\\DataBaseService\\IDataBaseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T20:17:19.395Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
